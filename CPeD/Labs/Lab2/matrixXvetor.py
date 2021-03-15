@@ -6,24 +6,20 @@
 import timeit, numpy as np
 rnd = np.random
 n = 500
-vetorB = rnd.uniform(0, 500, size=(n, n))
-matriz = rnd.uniform(0, 500, size=(n, n))
+matriz1 = rnd.uniform(0, 500, size=(n, n))
+matriz2 = rnd.uniform(0, 500, size=(n, n))
 resultado = np.zeros((n,n))
 starttime = timeit.default_timer()
-for i in range(len(matriz)):                        # numero de linhas da matriz
-    for j in range(len(vetorB)):                     # numero de elementos no vetor
-        resultado[i,j] += matriz[i,j]*vetorB[i,j]
+
+for i in range(len(matriz1)):                        # numero de linhas da matriz
+    for j in range(len(matriz2)):                     # numero de elementos no vetor
+        temp = 0
+        for k in range(len(matriz2)):
+            temp += matriz1[i,k]*matriz2[k,j]
+        resultado[i,j] = temp
 print(f"Tempo 1: {timeit.default_timer() - starttime}")
 print(f"Primeiro elemento da matriz resultado: {resultado[0][0]}")
 starttime = timeit.default_timer()
-for i in range(len(matriz)):                        # numero de linhas da matriz
-    temp = 0
-    for j in range(len(vetorB)):                     # numero de elementos no vetor
-        temp += matriz[i,j]*vetorB[i,j]
-    resultado[i,j] = temp
+resultado = np.matmul(matriz1,matriz2)
 print(f"Tempo 2: {timeit.default_timer() - starttime}")
-print(f"Primeiro elemento da matriz resultado: {resultado[0][0]}")
-resultado = np.zeros((n,n))
-resultado = np.matmul(matriz,vetorB)
-
 print(f"Primeiro elemento da matriz resultado: {resultado[0][0]}")
