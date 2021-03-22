@@ -1,7 +1,8 @@
-# Computação Paralela e Distribuída 2020/2021–Lab 02
-# Aluno1: (nome do aluno)(número do aluno)(turma do aluno)
-# Aluno1: (nome do aluno)(número do aluno)(turma do aluno)
+# Computação Paralela e Distribuída 2020/2021
+# Aluno: Fernando Ramalho 200290040 BS (BrightStart 2ª Edição)
+# Aluno: Antonio Costa 200221097 (BrightStart 2ª Edição)
 #############################################
+
 import checkSys as check
 print(check.get_processsor_info())
 
